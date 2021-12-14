@@ -23,7 +23,7 @@ function Nav() {
   return (
     <nav className="relative">
       <div
-        className=" cursor-grab flex px-10 sm:px-20 text-2xl whitespace-nowrap space-x-10 sm:space-x-20 overflow-x-scroll overflow-y-hidden scrollbar-hide"
+        className=" cursor-grab flex px-10 sm:px-20 text-xl whitespace-nowrap space-x-10 sm:space-x-20 overflow-x-scroll overflow-y-hidden scrollbar-hide"
         ref={scrollRef}
       >
         {Object.entries(requests).map(([key, { title, url }]) => (

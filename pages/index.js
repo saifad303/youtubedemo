@@ -5,6 +5,8 @@ import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Results from "../components/Results";
 import requests from "../utils/requests";
+import Sidebar from "../components/Sidebar";
+import MiniSidebar from "../components/MiniSidebar";
 
 export default function Home({ results }) {
   console.log(results);
@@ -18,9 +20,22 @@ export default function Home({ results }) {
       <main>
         <Header />
 
-        <Nav />
-
-        <Results results={results} />
+        <div className="flex items-start">
+          <div className="w-[300px] h-screen bg-white xl:inline-block hidden">
+            <Sidebar />
+          </div>
+          <div className="w-[100px] h-screen bg-white inline-block xl:hidden">
+            <MiniSidebar />
+          </div>
+          <div className="w-full h-screen">
+            <div className=" sticky">
+              <Nav />
+            </div>
+            <div className="h-screen">
+              <Results results={results} />
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );

@@ -21,23 +21,31 @@ function Nav() {
     }
   }, []);
   return (
-    <nav className="relative">
-      <div
-        className=" cursor-grab flex px-10 sm:px-20 text-xl whitespace-nowrap space-x-10 sm:space-x-20 overflow-x-scroll overflow-y-hidden scrollbar-hide"
-        ref={scrollRef}
-      >
-        {Object.entries(requests).map(([key, { title, url }]) => (
-          <h2
-            key={key}
-            className=" last:pr-24 cursor-pointer transition duration-100 transform hover:scale-125 hover:text-white active:text-red-500"
-            onClick={() => router.push(`/?genres=${key}`)}
-          >
-            {title}
-          </h2>
-        ))}
-      </div>
-      <div className="absolute top-0 right-0 bg-gradient-to-l from-[#0C1E2B] h-10 w-1/12"></div>
-    </nav>
+    <div>
+      <div className="h-[1px] bg-gray-300 w-full ml-auto" />
+      <nav className="relative py-2">
+        <div
+          className=" cursor-grab flex px-10 sm:px-2 text-xl whitespace-nowrap overflow-x-scroll overflow-y-hidden scrollbar-hide"
+          ref={scrollRef}
+        >
+          {Object.entries(requests).map(([key, { title, url }]) => (
+            <div
+              key={key}
+              className="bg-gray-100 mr-3 py-1 px-2 rounded-full border"
+            >
+              <h2
+                className=" cursor-pointer transition duration-100 transform active:text-red-500 text-base"
+                onClick={() => router.push(`/?genres=${key}`)}
+              >
+                {title}
+              </h2>
+            </div>
+          ))}
+        </div>
+        <div className="absolute top-0 right-0 bg-gradient-to-l from-[#fff] h-10 w-1/12"></div>
+      </nav>
+      <div className="h-[1px] bg-gray-300 w-full ml-auto" />
+    </div>
   );
 }
 
